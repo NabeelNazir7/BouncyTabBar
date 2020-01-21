@@ -19,6 +19,6 @@
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "BouncyTabBar/Source/**/*",
+  "source_files": "Source/**/*",
   "swift_version": "5.0"
 }

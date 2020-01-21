@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  BouncyTabBar: c9f5efda529aff614f4c0106a10f017d3ee4239b
+  BouncyTabBar: 68f0d67532b69dfe6fac99057d5d75e8df1db38b
 
 PODFILE CHECKSUM: 71c1564997134ed1ca2c1f9483bf86fddbd26902
 

@@ -20,9 +20,9 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Shahbaz Saleem' => 'shahbaz@saleems.me' }
-  s.source           = { :git => 'https://github.com/shahbazsaleem01/BouncyTabBar.git', :tag => s.version.to_s }
-
+  s.source           = { :git => 'https://github.com/shahbazsaleem01/BouncyTabBar.git', :tag => "#{s.version}" }
+  s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'BouncyTabBar/Source/**/*'
+  s.source_files = 'Source/**/*'
 end

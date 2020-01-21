@@ -3,18 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BB8DB8920204864744B419F53A54A89 /* BouncyTabBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 091693C7A52F1C58315CF8E408A70076 /* BouncyTabBar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0BB8DB8920204864744B419F53A54A89 /* BouncyTabBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B33E44C74FA448EFA0C1DD4F56820965 /* BouncyTabBar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		118128A567E0E6D43E652BF3CAA25B33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4ABC842F91C4611FDE2BC5DA672DA158 /* BouncyTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E79145EDB8DCCE70BF9D09486C7B2F /* BouncyTabBarView.swift */; };
+		57539C62805B8578A48B10C1DC8CCA33 /* BouncyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66D47831340D956ACCFEEA650568C14 /* BouncyTabView.swift */; };
 		734E567ABD5EE9AF5960AC2AF934573C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 		833D4951F5812788B852447C67781D36 /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7825A90E082A1582EB16256B0E722B3F /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAD783C61EB0112A14091A730FE84806 /* BouncyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0BC47CF0C693F8B5CAE9AA43A9E62 /* BouncyTabBarViewController.swift */; };
-		D0A940D35BB965C79187EE9A7B58EE99 /* BouncyTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6D2E2CA62EA32269A7150FD9A98AA /* BouncyTabBarView.swift */; };
-		E6BEDC343679A5A769C7A207989A04E1 /* BouncyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA29E2A53246E131684509D036FE819F /* BouncyTabView.swift */; };
-		E7D7CF8C902468F2FD69F9CA0AE2DE52 /* BouncyTabBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 360C95CF9AF708E1CD115B7016C7CD40 /* BouncyTabBar-dummy.m */; };
+		8BC6F64A6D02B544814F94EC4EE28644 /* BouncyTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A829CBF81AC08746BA6040ED6D3FD1B8 /* BouncyTabBarViewController.swift */; };
+		E7D7CF8C902468F2FD69F9CA0AE2DE52 /* BouncyTabBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54320B214FB0B61BC6381B7D1680C936 /* BouncyTabBar-dummy.m */; };
 		F12114A64D8AD5DE7875372CEC7A383A /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D7C498FA339E02BD53ECB8916CEA8E /* Pods-Example-dummy.m */; };
 /* End PBXBuildFile section */
 
@@ -29,31 +29,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		091693C7A52F1C58315CF8E408A70076 /* BouncyTabBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BouncyTabBar-umbrella.h"; sourceTree = "<group>"; };
 		1F667CC0E19EAF34E5A4119E2121F585 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		243410B9535472556EA4BB6DBC133A0D /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		286028F2DF7510692667934533E79270 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		31C1D37707DFAA5E6A164BCC07834264 /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		35C305D3797C284E6F5BAA1D3E6F9BF8 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
-		360C95CF9AF708E1CD115B7016C7CD40 /* BouncyTabBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BouncyTabBar-dummy.m"; sourceTree = "<group>"; };
-		411A7E62722529622A73456788931328 /* BouncyTabBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = BouncyTabBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		41A6D2E2CA62EA32269A7150FD9A98AA /* BouncyTabBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BouncyTabBarView.swift; path = BouncyTabBar/Source/BouncyTabBarView.swift; sourceTree = "<group>"; };
 		441854E35F81731E63E53DC7E4EEAD9D /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		485A3A3B3C1A06F642B03BCEE67E7C0C /* BouncyTabBar.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = BouncyTabBar.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		54320B214FB0B61BC6381B7D1680C936 /* BouncyTabBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BouncyTabBar-dummy.m"; sourceTree = "<group>"; };
+		6E763D919F10676F1315058FDD2BDF60 /* BouncyTabBar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BouncyTabBar-Info.plist"; sourceTree = "<group>"; };
 		7825A90E082A1582EB16256B0E722B3F /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
 		90BE69F9ADA69DAF6A66A29911F6D2CB /* BouncyTabBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BouncyTabBar.framework; path = BouncyTabBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9454179B61BC0E96FD8673AD2828D76B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		9C76376E9FC0953733BEFE0EDACF65FC /* BouncyTabBar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "BouncyTabBar-Info.plist"; sourceTree = "<group>"; };
+		9206A760D6F52AF63CCB57D173492342 /* BouncyTabBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BouncyTabBar.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A734A9F1592A385ACCCF4332BDE45F7F /* BouncyTabBar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BouncyTabBar.xcconfig; sourceTree = "<group>"; };
-		ACA913DE632E2DE38868B3722279A2D8 /* BouncyTabBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BouncyTabBar.modulemap; sourceTree = "<group>"; };
+		A66D47831340D956ACCFEEA650568C14 /* BouncyTabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BouncyTabView.swift; path = Source/BouncyTabView.swift; sourceTree = "<group>"; };
+		A829CBF81AC08746BA6040ED6D3FD1B8 /* BouncyTabBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BouncyTabBarViewController.swift; path = Source/BouncyTabBarViewController.swift; sourceTree = "<group>"; };
+		AACB2E432865F736396FCF88A9454BC9 /* BouncyTabBar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = BouncyTabBar.modulemap; sourceTree = "<group>"; };
 		AFECBC24E09D0D25F822C27BD944AFD4 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
+		B33E44C74FA448EFA0C1DD4F56820965 /* BouncyTabBar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BouncyTabBar-umbrella.h"; sourceTree = "<group>"; };
 		B45138496B85A072654D1D0F8EBBEDE5 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		B4C0BC47CF0C693F8B5CAE9AA43A9E62 /* BouncyTabBarViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BouncyTabBarViewController.swift; path = BouncyTabBar/Source/BouncyTabBarViewController.swift; sourceTree = "<group>"; };
+		C975B39082D09438A9462E1C5BC5AE29 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		D5C2664CA75C6793D3B242E9F00ACF01 /* BouncyTabBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BouncyTabBar-prefix.pch"; sourceTree = "<group>"; };
 		D6D7C498FA339E02BD53ECB8916CEA8E /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
-		DE4371C1267F4B5A31CBA12370E1031C /* BouncyTabBar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BouncyTabBar-prefix.pch"; sourceTree = "<group>"; };
-		E37169B0A7DBD14D104407F73A9184EA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D8E79145EDB8DCCE70BF9D09486C7B2F /* BouncyTabBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BouncyTabBarView.swift; path = Source/BouncyTabBarView.swift; sourceTree = "<group>"; };
 		EA21B344259B58996DB73382B1B1521F /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		EA29E2A53246E131684509D036FE819F /* BouncyTabView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BouncyTabView.swift; path = BouncyTabBar/Source/BouncyTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,17 +76,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		295A0261D324D0E88EFCC109FDD5C91B /* BouncyTabBar */ = {
+		06AC6CBA5CEAA6FE01158BAA77006FF1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				41A6D2E2CA62EA32269A7150FD9A98AA /* BouncyTabBarView.swift */,
-				B4C0BC47CF0C693F8B5CAE9AA43A9E62 /* BouncyTabBarViewController.swift */,
-				EA29E2A53246E131684509D036FE819F /* BouncyTabView.swift */,
-				930474EBA13809B5FDD714A28DF7685A /* Pod */,
-				CFC5367E0FE1E837B172D65624AA15E6 /* Support Files */,
+				AACB2E432865F736396FCF88A9454BC9 /* BouncyTabBar.modulemap */,
+				9206A760D6F52AF63CCB57D173492342 /* BouncyTabBar.xcconfig */,
+				54320B214FB0B61BC6381B7D1680C936 /* BouncyTabBar-dummy.m */,
+				6E763D919F10676F1315058FDD2BDF60 /* BouncyTabBar-Info.plist */,
+				D5C2664CA75C6793D3B242E9F00ACF01 /* BouncyTabBar-prefix.pch */,
+				B33E44C74FA448EFA0C1DD4F56820965 /* BouncyTabBar-umbrella.h */,
 			);
-			name = BouncyTabBar;
-			path = ../..;
+			name = "Support Files";
+			path = "BouncyTabBar/Pods/Target Support Files/BouncyTabBar";
+			sourceTree = "<group>";
+		};
+		2967E2B0DE62AE0C35206225A3B770FC /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				485A3A3B3C1A06F642B03BCEE67E7C0C /* BouncyTabBar.podspec */,
+				C975B39082D09438A9462E1C5BC5AE29 /* LICENSE */,
+				286028F2DF7510692667934533E79270 /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		37EF4B6108EE9998AE76ADBE1EB81449 /* Products */ = {
@@ -98,14 +109,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		930474EBA13809B5FDD714A28DF7685A /* Pod */ = {
+		69442DDFE7510F3839F6C63BD16E9FB9 /* BouncyTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				411A7E62722529622A73456788931328 /* BouncyTabBar.podspec */,
-				9454179B61BC0E96FD8673AD2828D76B /* LICENSE */,
-				E37169B0A7DBD14D104407F73A9184EA /* README.md */,
+				D8E79145EDB8DCCE70BF9D09486C7B2F /* BouncyTabBarView.swift */,
+				A829CBF81AC08746BA6040ED6D3FD1B8 /* BouncyTabBarViewController.swift */,
+				A66D47831340D956ACCFEEA650568C14 /* BouncyTabView.swift */,
+				2967E2B0DE62AE0C35206225A3B770FC /* Pod */,
+				06AC6CBA5CEAA6FE01158BAA77006FF1 /* Support Files */,
 			);
-			name = Pod;
+			name = BouncyTabBar;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		9BDBD95ED116334D1B2835202D8D3060 /* Pods-Example */ = {
@@ -152,20 +166,6 @@
 			);
 			sourceTree = "<group>";
 		};
-		CFC5367E0FE1E837B172D65624AA15E6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				ACA913DE632E2DE38868B3722279A2D8 /* BouncyTabBar.modulemap */,
-				A734A9F1592A385ACCCF4332BDE45F7F /* BouncyTabBar.xcconfig */,
-				360C95CF9AF708E1CD115B7016C7CD40 /* BouncyTabBar-dummy.m */,
-				9C76376E9FC0953733BEFE0EDACF65FC /* BouncyTabBar-Info.plist */,
-				DE4371C1267F4B5A31CBA12370E1031C /* BouncyTabBar-prefix.pch */,
-				091693C7A52F1C58315CF8E408A70076 /* BouncyTabBar-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "BouncyTabBar/Pods/Target Support Files/BouncyTabBar";
-			sourceTree = "<group>";
-		};
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +177,7 @@
 		F475B48679DE68C436A0FB1E05AE7D8D /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				295A0261D324D0E88EFCC109FDD5C91B /* BouncyTabBar */,
+				69442DDFE7510F3839F6C63BD16E9FB9 /* BouncyTabBar */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -291,9 +291,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7D7CF8C902468F2FD69F9CA0AE2DE52 /* BouncyTabBar-dummy.m in Sources */,
-				D0A940D35BB965C79187EE9A7B58EE99 /* BouncyTabBarView.swift in Sources */,
-				AAD783C61EB0112A14091A730FE84806 /* BouncyTabBarViewController.swift in Sources */,
-				E6BEDC343679A5A769C7A207989A04E1 /* BouncyTabView.swift in Sources */,
+				4ABC842F91C4611FDE2BC5DA672DA158 /* BouncyTabBarView.swift in Sources */,
+				8BC6F64A6D02B544814F94EC4EE28644 /* BouncyTabBarViewController.swift in Sources */,
+				57539C62805B8578A48B10C1DC8CCA33 /* BouncyTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +383,7 @@
 		};
 		2414242790CEBE673C7CF03A1198E405 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A734A9F1592A385ACCCF4332BDE45F7F /* BouncyTabBar.xcconfig */;
+			baseConfigurationReference = 9206A760D6F52AF63CCB57D173492342 /* BouncyTabBar.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -457,7 +457,7 @@
 		};
 		8F0ABB665A8CA49EE91C30BC4574873E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A734A9F1592A385ACCCF4332BDE45F7F /* BouncyTabBar.xcconfig */;
+			baseConfigurationReference = 9206A760D6F52AF63CCB57D173492342 /* BouncyTabBar.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
