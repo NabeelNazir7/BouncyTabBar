@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(
             name: "BouncyTabBar",
-            targets: ["BouncyTabBar"]),
+            targets: ["BouncyTabBar"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -22,5 +22,5 @@ let package = Package(
             name: "BouncyTabBar",
             path: "Source/"
         )
-    ],
+    ]
 )
