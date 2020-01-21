@@ -40,8 +40,8 @@ class BouncyTabView: UIView {
         tabImageView.translatesAutoresizingMaskIntoConstraints = false
         constraints.append(tabImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor))
         constraints.append(tabImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constraints.append(tabImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarSizeImage))
-        constraints.append(tabImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarSizeImage))
+        constraints.append(tabImageView.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeImage))
+        constraints.append(tabImageView.widthAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeImage))
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         constraints.append(titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0))
@@ -54,3 +54,4 @@ class BouncyTabView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A8D39A8F597DC8B952285D2B60B9AD5E"
-               BuildableName = "BouncyTabBar"
+               BuildableName = "BouncyTabBar.framework"
                BlueprintName = "BouncyTabBar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

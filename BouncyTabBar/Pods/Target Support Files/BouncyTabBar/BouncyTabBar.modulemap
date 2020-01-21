@@ -1,0 +1,6 @@
+framework module BouncyTabBar {
+  umbrella header "BouncyTabBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

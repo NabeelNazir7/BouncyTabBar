@@ -2,15 +2,15 @@ PODS:
   - BouncyTabBar (1.0.0)
 
 DEPENDENCIES:
-  - BouncyTabBar (from `../Pods Meta/`)
+  - BouncyTabBar (from `../`)
 
 EXTERNAL SOURCES:
   BouncyTabBar:
-    :path: "../Pods Meta/"
+    :path: "../"
 
 SPEC CHECKSUMS:
-  BouncyTabBar: 640bee624e66d4dfc824970c15c4b47664ab193a
+  BouncyTabBar: c9f5efda529aff614f4c0106a10f017d3ee4239b
 
-PODFILE CHECKSUM: c1b9e18232d10ea041b10e76943c6ef1d3c48c31
+PODFILE CHECKSUM: 71c1564997134ed1ca2c1f9483bf86fddbd26902
 
 COCOAPODS: 1.8.4

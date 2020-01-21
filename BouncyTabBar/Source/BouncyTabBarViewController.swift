@@ -19,8 +19,8 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
         }
     }
     
-    private lazy var soTabBar: SOTabBarView = {
-        let soBarView = SOTabBarView()
+    private lazy var soTabBar: BouncyTabBarView = {
+        let soBarView = BouncyTabBarView()
         soBarView.viewControllers = viewControllers
         soBarView.setupView()
         soBarView.tabBarDelegate = self
@@ -41,7 +41,7 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
     
     private func drawConstraint() {
         let safeAreaView = UIView()
-        safeAreaView.backgroundColor = SOTabBarSetting.tabBarBackground
+        safeAreaView.backgroundColor = BouncyTabBarSetting.tabBarBackground
         self.view.addSubview(safeAreaView)
         
         var constraints = [NSLayoutConstraint]()
@@ -50,7 +50,7 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
         if #available(iOS 11.0, *) {
             constraints.append(containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0))
            } else {
-            constraints.append(containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(SOTabBarSetting.tabBarHeight)))
+            constraints.append(containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(BouncyTabBarSetting.tabBarHeight)))
         }
         constraints.append(containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
         constraints.append(containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
@@ -64,7 +64,7 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
         }
         constraints.append(soTabBar.trailingAnchor.constraint(equalTo: view.trailingAnchor))
         constraints.append(soTabBar.leadingAnchor.constraint(equalTo: view.leadingAnchor))
-        constraints.append(soTabBar.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarHeight))
+        constraints.append(soTabBar.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarHeight))
         
         safeAreaView.translatesAutoresizingMaskIntoConstraints = false
         constraints.append(safeAreaView.topAnchor.constraint(equalTo: soTabBar.bottomAnchor))
@@ -77,7 +77,7 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
         constraints.forEach({ $0.isActive = true })
     }
     
-    open func soTabBar(_ tabBar: SOTabBarView, didSelectTabAt index: Int) {
+    open func bouncyTabBar(_ tabBar: BouncyTabBarView, didSelectTabAt index: Int) {
         
         let previousVC = viewControllers?[previousSelectedIndex]
         previousVC?.willMove(toParent: nil)
@@ -117,6 +117,6 @@ public struct BouncyTabBarSetting {
 // use this protocol to detect when a tab bar item is pressed
 @available(iOS 10.0, *)
 protocol BouncyTabBarDelegate: AnyObject {
-     func bouncyTabBar(_ tabBar: SOTabBarView, didSelectTabAt index: Int)
+     func bouncyTabBar(_ tabBar: BouncyTabBarView, didSelectTabAt index: Int)
 }
 

@@ -57,7 +57,7 @@ public class BouncyTabBarView: UIView {
         return UIScreen.main.bounds.width / CGFloat(viewControllers.count)
     }
     
-    weak var tabBarDelegate: SOTabBarDelegate?
+    weak var tabBarDelegate: BouncyTabBarDelegate?
     
     private var selectedIndex: Int = 0
     private var previousSelectedIndex = 0
@@ -74,7 +74,7 @@ public class BouncyTabBarView: UIView {
     
     private func dropShadow() {
         backgroundColor = .clear
-        layer.shadowColor = SOTabBarSetting.tabBarShadowColor
+        layer.shadowColor = BouncyTabBarSetting.tabBarShadowColor
         layer.shadowOpacity = 0.6
         layer.shadowOffset = CGSize(width: 0, height: -2)
         layer.shadowRadius = 3
@@ -94,8 +94,8 @@ public class BouncyTabBarView: UIView {
     
     private func drawTabs() {
         for vc in viewControllers {
-            let barView = SOTabView(tabBar: vc.tabBarItem)
-            barView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarHeight).isActive = true
+            let barView = BouncyTabView(tabBar: vc.tabBarItem)
+            barView.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarHeight).isActive = true
             barView.translatesAutoresizingMaskIntoConstraints = false
             barView.isUserInteractionEnabled = false
             self.stackView.addArrangedSubview(barView)
@@ -111,8 +111,8 @@ public class BouncyTabBarView: UIView {
  
         var constraints = [NSLayoutConstraint]()
         
-        innerCircleView.frame.size = SOTabBarSetting.tabBarCircleSize
-        innerCircleView.layer.cornerRadius = SOTabBarSetting.tabBarCircleSize.width / 2
+        innerCircleView.frame.size = BouncyTabBarSetting.tabBarCircleSize
+        innerCircleView.layer.cornerRadius = BouncyTabBarSetting.tabBarCircleSize.width / 2
         
 //        outerCircleView.layer.cornerRadius = (innerCircleView.frame.size.height - 10) / 2
 //        constraints.append(outerCircleView.centerYAnchor.constraint(equalTo: self.innerCircleView.centerYAnchor))
@@ -122,8 +122,8 @@ public class BouncyTabBarView: UIView {
         
 //        constraints.append(tabSelectedImageView.centerYAnchor.constraint(equalTo: outerCircleView.centerYAnchor))
 //        constraints.append(tabSelectedImageView.centerXAnchor.constraint(equalTo: outerCircleView.centerXAnchor))
-//        constraints.append(tabSelectedImageView.heightAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarSizeSelectedImage))
-//        constraints.append(tabSelectedImageView.widthAnchor.constraint(equalToConstant: SOTabBarSetting.tabBarSizeSelectedImage))
+//        constraints.append(tabSelectedImageView.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeSelectedImage))
+//        constraints.append(tabSelectedImageView.widthAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeSelectedImage))
         
         stackView.frame = self.bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         if #available(iOS 11.0, *) {
@@ -154,7 +154,7 @@ public class BouncyTabBarView: UIView {
         previousSelectedIndex = selectedIndex
         selectedIndex  = index + 1
         
-        tabBarDelegate?.soTabBar(self, didSelectTabAt: index)
+        tabBarDelegate?.bouncyTabBar(self, didSelectTabAt: index)
         animateCircle(with: circlePath())
 //        animateBackground(with: backgroundPath())
 //        animateImage()
@@ -181,7 +181,7 @@ public class BouncyTabBarView: UIView {
     
 //    private func animateImage() {
 //        tabSelectedImageView.alpha = 0
-//        UIView.animate(withDuration: SOTabBarSetting.tabBarAnimationDurationTime) { [weak self] in
+//        UIView.animate(withDuration: BouncyTabBarSetting.tabBarAnimationDurationTime) { [weak self] in
 //            self?.tabSelectedImageView.alpha = 1
 //        }
 //    }
@@ -204,7 +204,7 @@ public class BouncyTabBarView: UIView {
         fillTheHole()
 //        let caframeAnimation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
 //        caframeAnimation.path = path
-//        caframeAnimation.duration = SOTabBarSetting.tabBarAnimationDurationTime
+//        caframeAnimation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime
 //        caframeAnimation.fillMode = .both
 //        caframeAnimation.isRemovedOnCompletion = false
 //        innerCircleView.layer.add(caframeAnimation, forKey: "circleLayerAnimationKey")
@@ -216,11 +216,11 @@ public class BouncyTabBarView: UIView {
         
         let path = UIBezierPath()
         path.move(to: CGPoint(x: startPoint_X, y: y))
-        path.addLine(to: CGPoint(x: startPoint_X, y: -CGFloat(SOTabBarSetting.tabBarCircleSize.height * 0.5)))
+        path.addLine(to: CGPoint(x: startPoint_X, y: -CGFloat(BouncyTabBarSetting.tabBarCircleSize.height * 0.5)))
         
         let caframeAnimation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         caframeAnimation.path = path.cgPath
-        caframeAnimation.duration = SOTabBarSetting.tabBarAnimationDurationTime * 0.2
+        caframeAnimation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.2
         caframeAnimation.fillMode = .both
         caframeAnimation.isRemovedOnCompletion = false
         innerCircleView.layer.add(caframeAnimation, forKey: "circleLayerAnimationKey1")
@@ -235,7 +235,7 @@ public class BouncyTabBarView: UIView {
     private func moveTheCircle(){
         let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
         let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let y = -CGFloat(SOTabBarSetting.tabBarCircleSize.height * 0.5)
+        let y = -CGFloat(BouncyTabBarSetting.tabBarCircleSize.height * 0.5)
         
         let controlPoint_Y = ((endPoint_X-startPoint_X)/2) > 0 ? -((endPoint_X-startPoint_X)/2) : ((endPoint_X-startPoint_X)/2)
         
@@ -245,7 +245,7 @@ public class BouncyTabBarView: UIView {
         
         let caframeAnimation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         caframeAnimation.path = path.cgPath
-        caframeAnimation.duration = SOTabBarSetting.tabBarAnimationDurationTime * 0.6
+        caframeAnimation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.6
         caframeAnimation.fillMode = .both
         caframeAnimation.isRemovedOnCompletion = false
         innerCircleView.layer.add(caframeAnimation, forKey: "circleLayerAnimationKey2")
@@ -258,7 +258,7 @@ public class BouncyTabBarView: UIView {
     
     private func dropTheCircle(){
         let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let y = -CGFloat(SOTabBarSetting.tabBarCircleSize.height * 0.5)
+        let y = -CGFloat(BouncyTabBarSetting.tabBarCircleSize.height * 0.5)
         
         let path = UIBezierPath()
         path.move(to: CGPoint(x: endPoint_X, y: y))
@@ -266,7 +266,7 @@ public class BouncyTabBarView: UIView {
         
         let caframeAnimation = CAKeyframeAnimation(keyPath: #keyPath(CALayer.position))
         caframeAnimation.path = path.cgPath
-        caframeAnimation.duration = SOTabBarSetting.tabBarAnimationDurationTime * 0.2
+        caframeAnimation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.2
         caframeAnimation.fillMode = .both
         caframeAnimation.isRemovedOnCompletion = false
         innerCircleView.layer.add(caframeAnimation, forKey: "circleLayerAnimationKey3")
@@ -275,7 +275,7 @@ public class BouncyTabBarView: UIView {
     
     private func fillTheHole(){
         let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let circleSize = SOTabBarSetting.tabBarCircleSize
+        let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
         path.move(to: CGPoint.zero)
@@ -291,13 +291,13 @@ public class BouncyTabBarView: UIView {
         path.addLine(to: CGPoint(x: startPoint_X + circleSize.width + 4, y: 0))
         
         path.addLine(to: CGPoint(x: frame.size.width, y: 0))
-        path.addLine(to: CGPoint(x: frame.size.width, y: SOTabBarSetting.tabBarHeight))
-        path.addLine(to: CGPoint(x: 0, y: SOTabBarSetting.tabBarHeight))
+        path.addLine(to: CGPoint(x: frame.size.width, y: BouncyTabBarSetting.tabBarHeight))
+        path.addLine(to: CGPoint(x: 0, y: BouncyTabBarSetting.tabBarHeight))
         path.close()
         
         
         let animation = CABasicAnimation(keyPath: "path")
-        animation.duration = SOTabBarSetting.tabBarAnimationDurationTime * 0.2
+        animation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.2
         animation.fromValue = backgroundShape.path
         animation.toValue = path.cgPath
         animation.isRemovedOnCompletion = false
@@ -307,7 +307,7 @@ public class BouncyTabBarView: UIView {
     
     private func moveTheHole(){
         let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let circleSize = SOTabBarSetting.tabBarCircleSize
+        let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
         path.move(to: CGPoint.zero)
@@ -323,13 +323,13 @@ public class BouncyTabBarView: UIView {
         path.addLine(to: CGPoint(x: endPoint_X + circleSize.width + 4, y: 0))
         
         path.addLine(to: CGPoint(x: frame.size.width, y: 0))
-        path.addLine(to: CGPoint(x: frame.size.width, y: SOTabBarSetting.tabBarHeight))
-        path.addLine(to: CGPoint(x: 0, y: SOTabBarSetting.tabBarHeight))
+        path.addLine(to: CGPoint(x: frame.size.width, y: BouncyTabBarSetting.tabBarHeight))
+        path.addLine(to: CGPoint(x: 0, y: BouncyTabBarSetting.tabBarHeight))
         path.close()
         
         
 //        let animation = CABasicAnimation(keyPath: "path")
-//        animation.duration = SOTabBarSetting.tabBarAnimationDurationTime * 0.8
+//        animation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.8
 //        animation.fromValue = backgroundShape.path
 //        animation.toValue = path.cgPath
 //        animation.isRemovedOnCompletion = false
@@ -343,7 +343,7 @@ public class BouncyTabBarView: UIView {
     
     private func backgroundPath() -> CGPath{
         let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let circleSize = SOTabBarSetting.tabBarCircleSize
+        let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
         path.move(to: CGPoint.zero)
@@ -365,15 +365,15 @@ public class BouncyTabBarView: UIView {
         path.addQuadCurve(to: curve3_to, controlPoint: curve3_cp)
         
         path.addLine(to: CGPoint(x: frame.size.width, y: 0))
-        path.addLine(to: CGPoint(x: frame.size.width, y: SOTabBarSetting.tabBarHeight))
-        path.addLine(to: CGPoint(x: 0, y: SOTabBarSetting.tabBarHeight))
+        path.addLine(to: CGPoint(x: frame.size.width, y: BouncyTabBarSetting.tabBarHeight))
+        path.addLine(to: CGPoint(x: 0, y: BouncyTabBarSetting.tabBarHeight))
         path.close()
         return path.cgPath
     }
     
     private func animateBackground(with path: CGPath){
         let animation = CABasicAnimation(keyPath: "path")
-        animation.duration = SOTabBarSetting.tabBarAnimationDurationTime * 0.2
+        animation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.2
         animation.fromValue = backgroundShape.path
         animation.toValue = path
         animation.isRemovedOnCompletion = false
