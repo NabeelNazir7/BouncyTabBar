@@ -13,6 +13,6 @@ let package = Package(
     targets: [
         .target(
             name: "BouncyTabBar",
-            path: "Source/"),
+            path: "Source"),
     ]
 )
