@@ -29,6 +29,7 @@
 		040F746F23D716A100F0C5E7 /* BouncyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyTabBarViewController.swift; sourceTree = "<group>"; };
 		040F747023D716A100F0C5E7 /* BouncyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyTabView.swift; sourceTree = "<group>"; };
 		040F747123D716A100F0C5E7 /* BouncyTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyTabBarView.swift; sourceTree = "<group>"; };
+		040F747323D71E2900F0C5E7 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		108EAA47F167C119960B828D /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A6C4EFA50D057A7575355A4 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		B71A7665744EEDBBBF756C27 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		040F743523D7037600F0C5E7 = {
 			isa = PBXGroup;
 			children = (
+				040F747323D71E2900F0C5E7 /* Package.swift */,
 				040F746A23D70ECF00F0C5E7 /* Pods Meta */,
 				040F746E23D716A100F0C5E7 /* Source */,
 				040F744F23D703A300F0C5E7 /* Example */,
