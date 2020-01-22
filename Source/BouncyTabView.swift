@@ -13,7 +13,8 @@ class BouncyTabView: UIView {
     private lazy var titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.font = UIFont.systemFont(ofSize: 16, weight: UIFont.Weight.semibold)
-        lbl.textColor = UIColor.darkGray
+        lbl.textColor = BouncyTabBarSetting.titleColor
+        lbl.font = BouncyTabBarSetting.titleFontStyle
         lbl.textAlignment = .center
         return lbl
     }()
@@ -28,6 +29,9 @@ class BouncyTabView: UIView {
             fatalError("You should set image to all view controllers")
         }
         tabImageView = UIImageView(image: selecteImage)
+        tabImageView.contentMode = .scaleAspectFit
+        tabImageView.image = tabImageView.image?.withRenderingMode(.alwaysTemplate)
+        tabImageView.tintColor = BouncyTabBarSetting.tabBarTintColor
         titleLabel.text = tabBar.title ?? ""
         drawConstraints()
     }
@@ -38,7 +42,8 @@ class BouncyTabView: UIView {
         var constraints = [NSLayoutConstraint]()
         
         tabImageView.translatesAutoresizingMaskIntoConstraints = false
-        constraints.append(tabImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor))
+//        constraints.append(tabImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor))
+        constraints.append(tabImageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -BouncyTabBarSetting.tabbarTitleTopOffset))
         constraints.append(tabImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor))
         constraints.append(tabImageView.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeImage))
         constraints.append(tabImageView.widthAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeImage))
@@ -47,7 +52,7 @@ class BouncyTabView: UIView {
         constraints.append(titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0))
         constraints.append(titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor))
         constraints.append(titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor))
-        constraints.append(titleLabel.heightAnchor.constraint(equalToConstant: 26))
+//        constraints.append(titleLabel.heightAnchor.constraint(equalToConstant: 26))
         constraints.forEach({ $0.isActive = true })
     }
     

@@ -30,13 +30,13 @@ public class BouncyTabBarView: UIView {
     private let innerCircleView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.backgroundColor = .white
+        view.backgroundColor = BouncyTabBarSetting.tabBarCircleColor
         return view
     }()
     
     private let backgroundShape: CAShapeLayer = {
         let shape = CAShapeLayer()
-        shape.fillColor = UIColor.yellow.cgColor
+        shape.fillColor = BouncyTabBarSetting.tabbarBackgroundColor.cgColor
         return shape
     }()
     
