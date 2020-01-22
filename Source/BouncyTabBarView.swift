@@ -278,24 +278,29 @@ public class BouncyTabBarView: UIView {
         let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
-        path.move(to: CGPoint.zero)
+        path.move(to: CGPoint(x: 20, y: 0))
         
         let firstCurveStart = CGPoint(x: startPoint_X - (circleSize.width) - 4, y: 0)
         path.addLine(to: firstCurveStart)
         
-        
         path.addLine(to: CGPoint(x: startPoint_X - circleSize.width * 0.5 - 4, y: 0))
-        
         path.addLine(to: CGPoint(x: startPoint_X + circleSize.width * 0.5 + 4, y: 0))
-        
         path.addLine(to: CGPoint(x: startPoint_X + circleSize.width + 4, y: 0))
         
-        path.addLine(to: CGPoint(x: frame.size.width, y: 0))
+        path.addLine(to: CGPoint(x: frame.size.width - 20, y: 0))
+        
+        let curve4_to = CGPoint(x: frame.size.width, y: 20)
+        let curve4_cp = CGPoint(x: curve4_to.x, y: 0)
+        path.addQuadCurve(to: curve4_to, controlPoint: curve4_cp)
+        
         path.addLine(to: CGPoint(x: frame.size.width, y: BouncyTabBarSetting.tabBarHeight))
         path.addLine(to: CGPoint(x: 0, y: BouncyTabBarSetting.tabBarHeight))
-        path.close()
+        path.addLine(to: CGPoint(x: 0, y: 20))
         
-        
+        let curve5_to = CGPoint(x: 20, y: 0)
+        let curve5_cp = CGPoint.zero
+        path.addQuadCurve(to: curve5_to, controlPoint: curve5_cp)
+                
         let animation = CABasicAnimation(keyPath: "path")
         animation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.2
         animation.fromValue = backgroundShape.path
@@ -310,23 +315,28 @@ public class BouncyTabBarView: UIView {
         let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
-        path.move(to: CGPoint.zero)
+        path.move(to: CGPoint(x: 20, y: 0))
         
         let firstCurveStart = CGPoint(x: endPoint_X - (circleSize.width) - 4, y: 0)
         path.addLine(to: firstCurveStart)
         
-        
         path.addLine(to: CGPoint(x: endPoint_X - circleSize.width * 0.5 - 4, y: 0))
-        
         path.addLine(to: CGPoint(x: endPoint_X + circleSize.width * 0.5 + 4, y: 0))
-        
         path.addLine(to: CGPoint(x: endPoint_X + circleSize.width + 4, y: 0))
         
-        path.addLine(to: CGPoint(x: frame.size.width, y: 0))
+        path.addLine(to: CGPoint(x: frame.size.width - 20, y: 0))
+        
+        let curve4_to = CGPoint(x: frame.size.width, y: 20)
+        let curve4_cp = CGPoint(x: curve4_to.x, y: 0)
+        path.addQuadCurve(to: curve4_to, controlPoint: curve4_cp)
+        
         path.addLine(to: CGPoint(x: frame.size.width, y: BouncyTabBarSetting.tabBarHeight))
         path.addLine(to: CGPoint(x: 0, y: BouncyTabBarSetting.tabBarHeight))
-        path.close()
+        path.addLine(to: CGPoint(x: 0, y: 20))
         
+        let curve5_to = CGPoint(x: 20, y: 0)
+        let curve5_cp = CGPoint.zero
+        path.addQuadCurve(to: curve5_to, controlPoint: curve5_cp)
         
 //        let animation = CABasicAnimation(keyPath: "path")
 //        animation.duration = BouncyTabBarSetting.tabBarAnimationDurationTime * 0.8
@@ -346,7 +356,7 @@ public class BouncyTabBarView: UIView {
         let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
-        path.move(to: CGPoint.zero)
+        path.move(to: CGPoint(x: 20, y: 0))
         
         let firstCurveStart = CGPoint(x: endPoint_X - (circleSize.width) - 4, y: 0)
         path.addLine(to: firstCurveStart)
@@ -364,10 +374,20 @@ public class BouncyTabBarView: UIView {
         let curve3_cp = CGPoint(x: curve3_to.x - ((curve3_to.x - curve2_to.x) * 0.75), y: curve1_to.y * 0.25)
         path.addQuadCurve(to: curve3_to, controlPoint: curve3_cp)
         
-        path.addLine(to: CGPoint(x: frame.size.width, y: 0))
+        path.addLine(to: CGPoint(x: frame.size.width - 20, y: 0))
+        
+        let curve4_to = CGPoint(x: frame.size.width, y: 20)
+        let curve4_cp = CGPoint(x: curve4_to.x, y: 0)
+        path.addQuadCurve(to: curve4_to, controlPoint: curve4_cp)
+        
         path.addLine(to: CGPoint(x: frame.size.width, y: BouncyTabBarSetting.tabBarHeight))
         path.addLine(to: CGPoint(x: 0, y: BouncyTabBarSetting.tabBarHeight))
-        path.close()
+        path.addLine(to: CGPoint(x: 0, y: 20))
+        
+        let curve5_to = CGPoint(x: 20, y: 0)
+        let curve5_cp = CGPoint.zero
+        path.addQuadCurve(to: curve5_to, controlPoint: curve5_cp)
+                
         return path.cgPath
     }
     
