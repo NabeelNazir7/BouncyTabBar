@@ -19,13 +19,13 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
         }
     }
     
-    private lazy var soTabBar: BouncyTabBarView = {
-        let soBarView = BouncyTabBarView()
-        soBarView.viewControllers = viewControllers
-        soBarView.setupView()
-        soBarView.tabBarDelegate = self
-        self.view.addSubview(soBarView)
-        return soBarView
+    private lazy var bouncyTabBar: BouncyTabBarView = {
+        let bouncyBarView = BouncyTabBarView()
+        bouncyBarView.viewControllers = viewControllers
+        bouncyBarView.setupView()
+        bouncyBarView.tabBarDelegate = self
+        self.view.addSubview(bouncyBarView)
+        return bouncyBarView
     }()
     
     private lazy var containerView: UIView = {
@@ -56,23 +56,23 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
         constraints.append(containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
         constraints.append(containerView.topAnchor.constraint(equalTo: view.topAnchor))
         
-        soTabBar.translatesAutoresizingMaskIntoConstraints = false
+        bouncyTabBar.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {
-            constraints.append(soTabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
+            constraints.append(bouncyTabBar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor))
            } else {
-            constraints.append(soTabBar.bottomAnchor.constraint(equalTo: view.bottomAnchor))
+            constraints.append(bouncyTabBar.bottomAnchor.constraint(equalTo: view.bottomAnchor))
         }
-        constraints.append(soTabBar.trailingAnchor.constraint(equalTo: view.trailingAnchor))
-        constraints.append(soTabBar.leadingAnchor.constraint(equalTo: view.leadingAnchor))
-        constraints.append(soTabBar.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarHeight))
+        constraints.append(bouncyTabBar.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        constraints.append(bouncyTabBar.leadingAnchor.constraint(equalTo: view.leadingAnchor))
+        constraints.append(bouncyTabBar.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarHeight))
         
         safeAreaView.translatesAutoresizingMaskIntoConstraints = false
-        constraints.append(safeAreaView.topAnchor.constraint(equalTo: soTabBar.bottomAnchor))
+        constraints.append(safeAreaView.topAnchor.constraint(equalTo: bouncyTabBar.bottomAnchor))
         constraints.append(safeAreaView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
         constraints.append(safeAreaView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
         constraints.append(safeAreaView.bottomAnchor.constraint(equalTo: view.bottomAnchor))
 
-        view.bringSubviewToFront(soTabBar)
+        view.bringSubviewToFront(bouncyTabBar)
         view.bringSubviewToFront(safeAreaView)
         constraints.forEach({ $0.isActive = true })
     }
@@ -102,15 +102,22 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
 
 public struct BouncyTabBarSetting {
     
-    public static var tabBarHeight: CGFloat = 66
+    public static var tabBarHeight: CGFloat = 70
     public static var tabBarTintColor: UIColor = UIColor(red: 250/255, green: 51/255, blue: 24/255, alpha: 1)
-    public static var tabBarBackground: UIColor = UIColor.white
+    public static var tabBarBackground: UIColor = BouncyTabBarSetting.tabbarBackgroundColor
+    public static var tabbarBackgroundColor = UIColor.gray
+
     public static var tabBarCircleSize = CGSize(width: 65, height: 65)
+    public static var tabBarCircleColor = UIColor.black
+
+    public static var tabbarTitleTopOffset: CGFloat = 0
+    public static var titleFontStyle = UIFont.systemFont(ofSize: 17)
+    public static var titleColor = BouncyTabBarSetting.tabBarTintColor
+    
     public static var tabBarSizeImage: CGFloat = 25
     public static var tabBarShadowColor = UIColor.lightGray.cgColor
     public static var tabBarSizeSelectedImage: CGFloat = 20
     public static var tabBarAnimationDurationTime: Double = 0.4
-    
 }
 
 
