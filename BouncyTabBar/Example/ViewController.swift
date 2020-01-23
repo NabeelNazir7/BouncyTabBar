@@ -9,11 +9,12 @@
 import UIKit
 import BouncyTabBar
 
-class ViewController: BouncyTabBarViewController {
+class ViewController: BouncyTabBarViewController, BouncyTabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bouncyTabbarDelegate = self
         BouncyTabBarSetting.tabBarTintColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         BouncyTabBarSetting.tabBarCircleSize = CGSize(width: 20, height: 20)
         BouncyTabBarSetting.tabBarCircleColor = UIColor.red
@@ -33,12 +34,14 @@ class ViewController: BouncyTabBarViewController {
         sleepStoryboard.tabBarItem = UITabBarItem(title: "Sleep", image: UIImage(named: "moon"), selectedImage: UIImage(named: "moon_Selected"))
         musicStoryboard.tabBarItem = UITabBarItem(title: "Music", image: UIImage(named: "music"), selectedImage: UIImage(named: "music_Selected"))
         meStoryboard.tabBarItem = UITabBarItem(title: "Me", image: UIImage(named: "menu"), selectedImage: UIImage(named: "menu_Selected"))
-           
+        
         viewControllers = [homeStoryboard, chatStoryboard,sleepStoryboard,musicStoryboard,meStoryboard]
+        
+        selectedIndex = 3
+        
     }
     
-    override func bouncyTabBar(_ tabBar: BouncyTabBarView, didSelectTabAt index: Int) {
-        super.bouncyTabBar(tabBar, didSelectTabAt: index)
-        print("did Tapped On \(index)")
+    func bouncyTabBar(didSelectTabAt index: Int) {
+        viewControllers[index].tabBarItem.title = "abc"
     }
 }
