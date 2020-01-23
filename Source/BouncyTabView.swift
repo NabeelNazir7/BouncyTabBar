@@ -36,6 +36,16 @@ class BouncyTabView: UIView {
         drawConstraints()
     }
     
+    internal func updateSelectedTab(){
+        titleLabel.font = BouncyTabBarSetting.selectedTabTitleFont
+        tabImageView.tintColor = BouncyTabBarSetting.selectedTabTintColor
+    }
+    
+    internal func updateUnSelectedTab(){
+        titleLabel.font = BouncyTabBarSetting.titleFontStyle
+        tabImageView.tintColor = BouncyTabBarSetting.tabBarTintColor
+    }
+    
     private func drawConstraints() {
         self.addSubview(titleLabel)
         self.addSubview(tabImageView)

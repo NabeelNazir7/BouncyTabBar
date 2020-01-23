@@ -23,7 +23,7 @@
 		040F745923D703A500F0C5E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		040F745C23D703A500F0C5E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040F745E23D703A500F0C5E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		040F746B23D70EEA00F0C5E7 /* BouncyTabBar.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = BouncyTabBar.podspec; path = ../BouncyTabBar.podspec; sourceTree = "<group>"; };
+		040F746B23D70EEA00F0C5E7 /* BouncyTabBar.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = BouncyTabBar.podspec; path = ../BouncyTabBar.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		040F746C23D70EEA00F0C5E7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		040F746D23D70EEA00F0C5E7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		040F746F23D716A100F0C5E7 /* BouncyTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BouncyTabBarViewController.swift; sourceTree = "<group>"; };

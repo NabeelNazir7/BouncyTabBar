@@ -10,12 +10,24 @@ import UIKit
 @available(iOS 10.0, *)
 open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
     
-    public var selectedIndex: Int = 0
-    public var previousSelectedIndex = 0
+    public var bouncyTabbarDelegate: BouncyTabBarControllerDelegate?
+    public var selectedIndex: Int = 0{
+        willSet{
+            previousSelectedIndex = selectedIndex
+        }
+        didSet{
+            bouncyTabBar.didSelectTab(index: selectedIndex)
+            updateController(previousSelectedIndex: previousSelectedIndex, index: selectedIndex)
+            bouncyTabbarDelegate?.bouncyTabBar(didSelectTabAt: selectedIndex)
+        }
+    }
+    
+    private var previousSelectedIndex = 0
     
     public var viewControllers: [UIViewController]! {
         didSet {
             drawConstraint()
+            selectedIndex = 0
         }
     }
     
@@ -77,23 +89,23 @@ open class BouncyTabBarViewController: UIViewController, BouncyTabBarDelegate {
         constraints.forEach({ $0.isActive = true })
     }
     
-    open func bouncyTabBar(_ tabBar: BouncyTabBarView, didSelectTabAt index: Int) {
-        
+    private func updateController(previousSelectedIndex: Int, index: Int){
         let previousVC = viewControllers?[previousSelectedIndex]
         previousVC?.willMove(toParent: nil)
         previousVC?.view.removeFromSuperview()
         previousVC?.removeFromParent()
         previousVC?.didMove(toParent: nil)
-        previousSelectedIndex = (index - 1) < 0 ? 0 : index - 1
         
-        let vc = viewControllers[index]
+        let vc = viewControllers[selectedIndex]
         addChild(vc)
-        selectedIndex = index
         vc.view.frame = containerView.bounds
         vc.willMove(toParent: self)
         containerView.addSubview(vc.view)
         vc.didMove(toParent: self)
-        
+    }
+    
+    func bouncyTabBar(_ tabBar: BouncyTabBarView, didSelectTabAt index: Int) {
+        selectedIndex = index
     }
 }
 
@@ -106,12 +118,14 @@ public struct BouncyTabBarSetting {
     public static var tabBarTintColor: UIColor = UIColor(red: 250/255, green: 51/255, blue: 24/255, alpha: 1)
     public static var tabBarBackground: UIColor = BouncyTabBarSetting.tabbarBackgroundColor
     public static var tabbarBackgroundColor = UIColor.gray
+    public static var selectedTabTintColor = UIColor.red
 
     public static var tabBarCircleSize = CGSize(width: 65, height: 65)
     public static var tabBarCircleColor = UIColor.black
 
     public static var tabbarTitleTopOffset: CGFloat = 0
-    public static var titleFontStyle = UIFont.systemFont(ofSize: 17)
+    public static var titleFontStyle = UIFont.systemFont(ofSize: 15)
+    public static var selectedTabTitleFont = UIFont.boldSystemFont(ofSize: 18)
     public static var titleColor = BouncyTabBarSetting.tabBarTintColor
     
     public static var tabBarSizeImage: CGFloat = 25
@@ -127,3 +141,6 @@ protocol BouncyTabBarDelegate: AnyObject {
      func bouncyTabBar(_ tabBar: BouncyTabBarView, didSelectTabAt index: Int)
 }
 
+public protocol BouncyTabBarControllerDelegate{
+    func bouncyTabBar(didSelectTabAt index: Int)
+}

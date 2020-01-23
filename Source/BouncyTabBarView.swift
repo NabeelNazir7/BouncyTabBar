@@ -59,17 +59,15 @@ public class BouncyTabBarView: UIView {
     
     weak var tabBarDelegate: BouncyTabBarDelegate?
     
-    private var selectedIndex: Int = 0
+    private var selectedIndex: Int = -1
     private var previousSelectedIndex = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        dropShadow()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        dropShadow()
     }
     
     private func dropShadow() {
@@ -83,9 +81,6 @@ public class BouncyTabBarView: UIView {
     internal func setupView() {
         drawBackground()
         drawConstraint()
-        DispatchQueue.main.async { [weak self] in
-            self?.didSelectTab(index: 0)
-        }
     }
     
     private func drawBackground(){
@@ -105,25 +100,11 @@ public class BouncyTabBarView: UIView {
     private func drawConstraint() {
         addSubview(stackView)
         addSubview(innerCircleView)
-      
-//        innerCircleView.addSubview(outerCircleView)
-//        outerCircleView.addSubview(tabSelectedImageView)
- 
+        
         var constraints = [NSLayoutConstraint]()
         
         innerCircleView.frame.size = BouncyTabBarSetting.tabBarCircleSize
         innerCircleView.layer.cornerRadius = BouncyTabBarSetting.tabBarCircleSize.width / 2
-        
-//        outerCircleView.layer.cornerRadius = (innerCircleView.frame.size.height - 10) / 2
-//        constraints.append(outerCircleView.centerYAnchor.constraint(equalTo: self.innerCircleView.centerYAnchor))
-//        constraints.append(outerCircleView.centerXAnchor.constraint(equalTo: self.innerCircleView.centerXAnchor))
-//        constraints.append(outerCircleView.heightAnchor.constraint(equalToConstant: innerCircleView.frame.size.height - 10))
-//        constraints.append(outerCircleView.widthAnchor.constraint(equalToConstant: innerCircleView.frame.size.width - 10))
-        
-//        constraints.append(tabSelectedImageView.centerYAnchor.constraint(equalTo: outerCircleView.centerYAnchor))
-//        constraints.append(tabSelectedImageView.centerXAnchor.constraint(equalTo: outerCircleView.centerXAnchor))
-//        constraints.append(tabSelectedImageView.heightAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeSelectedImage))
-//        constraints.append(tabSelectedImageView.widthAnchor.constraint(equalToConstant: BouncyTabBarSetting.tabBarSizeSelectedImage))
         
         stackView.frame = self.bounds.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
         if #available(iOS 11.0, *) {
@@ -144,51 +125,37 @@ public class BouncyTabBarView: UIView {
             return
         }
         let index = Int(floor(touchArea / tabWidth))
-        didSelectTab(index: index)
+        tabBarDelegate?.bouncyTabBar(self, didSelectTabAt: index)
     }
     
-    private func didSelectTab(index: Int) {
-        if index + 1 == selectedIndex {return}
-//        animateTitle(index: index)
+    func didSelectTab(index: Int) {
+        guard index != selectedIndex else{return}
  
         previousSelectedIndex = selectedIndex
-        selectedIndex  = index + 1
+        selectedIndex  = index
         
-        tabBarDelegate?.bouncyTabBar(self, didSelectTabAt: index)
         animateCircle(with: circlePath())
-//        animateBackground(with: backgroundPath())
-//        animateImage()
         
-//        guard let image = self.viewControllers[index].tabBarItem.selectedImage else {
-//            fatalError("You should insert selected image to all View Controllers")
-//        }
-//        self.tabSelectedImageView.image = image
+        updateTabs()
+        
     }
     
-//    private func animateTitle(index: Int) {
-//        for i in self.stackView.arrangedSubviews {
-//            if i == stackView.arrangedSubviews[index] {
-//                if let barView = self.stackView.arrangedSubviews[index] as? SOTabView {
-//                    barView.animateTabSelected()
-//                }
-//            }else {
-//                if let barView = i as? SOTabView {
-//                    barView.animateTabDeSelect()
-//                }
-//            }
-//        }
-//    }
-    
-//    private func animateImage() {
-//        tabSelectedImageView.alpha = 0
-//        UIView.animate(withDuration: BouncyTabBarSetting.tabBarAnimationDurationTime) { [weak self] in
-//            self?.tabSelectedImageView.alpha = 1
-//        }
-//    }
+    private func updateTabs(){
+        
+        if stackView.subviews.indices.contains(selectedIndex) {
+            let selectedView = stackView.subviews[selectedIndex] as? BouncyTabView
+            selectedView?.updateSelectedTab()
+        }
+
+        if stackView.subviews.indices.contains(previousSelectedIndex) {
+            let unselectedView = stackView.subviews[previousSelectedIndex] as? BouncyTabView
+            unselectedView?.updateUnSelectedTab()
+        }
+    }
     
     private func circlePath() -> CGPath {
-        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
+        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) + (tabWidth * 0.5)
+        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) + (tabWidth * 0.5)
         let y = CGFloat(0)
         let controlPoint_Y = ((endPoint_X-startPoint_X)/2) > 0 ? -((endPoint_X-startPoint_X)/2) : ((endPoint_X-startPoint_X)/2)
         
@@ -211,7 +178,7 @@ public class BouncyTabBarView: UIView {
     }
     
     private func liftTheCircle(){
-        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
+        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) + (tabWidth * 0.5)
         let y = CGFloat(0)
         
         let path = UIBezierPath()
@@ -233,8 +200,8 @@ public class BouncyTabBarView: UIView {
     }
     
     private func moveTheCircle(){
-        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
-        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
+        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) + (tabWidth * 0.5)
+        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) + (tabWidth * 0.5)
         let y = -CGFloat(BouncyTabBarSetting.tabBarCircleSize.height * 0.5)
         
         let controlPoint_Y = ((endPoint_X-startPoint_X)/2) > 0 ? -((endPoint_X-startPoint_X)/2) : ((endPoint_X-startPoint_X)/2)
@@ -257,7 +224,7 @@ public class BouncyTabBarView: UIView {
     }
     
     private func dropTheCircle(){
-        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
+        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) + (tabWidth * 0.5)
         let y = -CGFloat(BouncyTabBarSetting.tabBarCircleSize.height * 0.5)
         
         let path = UIBezierPath()
@@ -274,7 +241,7 @@ public class BouncyTabBarView: UIView {
     }
     
     private func fillTheHole(){
-        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) - (tabWidth * 0.5)
+        let startPoint_X =  CGFloat(previousSelectedIndex) * CGFloat(tabWidth) + (tabWidth * 0.5)
         let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
@@ -311,7 +278,7 @@ public class BouncyTabBarView: UIView {
     }
     
     private func moveTheHole(){
-        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
+        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) + (tabWidth * 0.5)
         let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
@@ -352,7 +319,7 @@ public class BouncyTabBarView: UIView {
     }
     
     private func backgroundPath() -> CGPath{
-        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) - (tabWidth * 0.5)
+        let endPoint_X = CGFloat(selectedIndex ) * CGFloat(tabWidth) + (tabWidth * 0.5)
         let circleSize = BouncyTabBarSetting.tabBarCircleSize
         
         let path = UIBezierPath()
